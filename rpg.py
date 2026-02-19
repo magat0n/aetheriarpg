@@ -45,18 +45,18 @@ class Personagem:
         self.status = "Vivo"
         self.inventario = ["Poção de Cura"]
 
-        if classe == "guerreiro":
+        if classe == "Guerreiro":
             self.hp = 150
-            self.forca = 20
+            self.forca = 30
             self.habilidades = ["Golpe Brutal"]
-        elif classe == "mago":
+        elif classe == "Mago":
             self.hp = 100
-            self.forca = 25
-            self.habilidades = ["Explosão Arcana"]
-        elif classe == "arqueiro":
+            self.forca = 20
+            self.habilidades = ["Bola de Fogo"]
+        elif classe == "Arqueiro":
             self.hp = 120
-            self.forca = 22
-            self.habilidades = ["Flecha Precisa"]
+            self.forca = 25
+            self.habilidades = ["Tiro Certeiro"]
 
         self.hp_max = self.hp
 
@@ -89,7 +89,7 @@ Inventário: {self.inventario}
 
 class Monstro:
     def __init__(self, level):
-        nomes = ["Goblin Sombrio", "Orc Selvagem", "Lobo Maldito"]
+        nomes = ["Goblin", "Orc", "Lobo Selvagem", "Esqueleto", "Mago Necromante", "Slime"]
         self.nome = random.choice(nomes)
         self.hp = random.randint(80, 120) + level * 10
         self.forca = random.randint(10, 20) + level * 5
@@ -143,7 +143,7 @@ def combate(jogador):
             narrar(f"O {inimigo.nome} contra-ataca!")
 
     if jogador.hp <= 0:
-        narrar("☠ Você caiu em batalha...")
+        narrar("☠ Você morreu em batalha...")
         exit()
     else:
         narrar(f"O {inimigo.nome} cai derrotado.")
